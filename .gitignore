@@ -1,0 +1,38 @@
+# macOS files ----
+.DS_Store
+
+# History files ----
+.Rhistory
+.Rapp.history
+
+# Session Data files ----
+.RData
+.Ruserdata
+
+# RStudio files ----
+*.Rproj
+.Rproj.user/
+
+# R Environment Variables ----
+.Renviron
+
+# User-specific files ----
+README.html
+inst/doc
+.Rbuildignore
+
+# Quarto files ----
+index.html
+index_files/
+sections/*.html
+sections/*_files
+/.quarto/
+
+# not sure why it renders the license, code of conduct and contributing markdown
+LICENSE_files/
+CONTRIBUTING_files/
+CODE_OF_CONDUCT_files/
+*.html
+
+sections/*_files
+**/*.quarto_ipynb
