@@ -1,2 +1,28 @@
-## Coming soon
+# Introduction
 
+## A common problem
+
+In data science, we often separate:
+
+- code
+- results
+- explanatory text
+
+<br/>
+
+. . .
+
+This creates several issues:
+
+- lack of reproducibility
+- hard maintenance
+- results becoming disconnected from the code
+
+
+## A common problem
+
+::: {.center}
+{{< video https://www.youtube.com/embed/s3JldKoA0zw >}}
+
+[_Credits:_ [Ignasi Bartomeus](https://bartomeuslab.com/)]{.small}
+:::
