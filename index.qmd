@@ -3,7 +3,7 @@ from: markdown+emoji
 format:
   revealjs:
     logo: images/logo-affiliation.png
-    footer: "{{< fa brands github >}} &nbsp;[`frbcesab/datasciencesupport`](https://frbcesab.github.io/datasciencesupport) &nbsp; &bull; &nbsp; {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} &nbsp;[`cc-by-4.0`](https://creativecommons.org/licenses/by/4.0/deed.en)"
+    footer: "{{< fa brands github >}} &nbsp;[`frbcesab/quarto-introduction`](https://frbcesab.github.io/quarto-introduction) &nbsp; &bull; &nbsp; {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} &nbsp;[`cc-by-4.0`](https://creativecommons.org/licenses/by/4.0/deed.en)"
     smaller: true
     auto-stretch: false
     chalkboard: true
@@ -19,7 +19,7 @@ engine: knitr
 ```
 
 
-<!-- Insert section 'Quarto basics' -->
+<!-- Insert section 'Others slides' -->
 
 ```{r}
 #| child: "sections/presentation.qmd"
