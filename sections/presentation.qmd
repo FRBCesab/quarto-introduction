@@ -1,4 +1,4 @@
-# Introduction
+# Motivations
 
 ## A common problem
 
@@ -22,7 +22,41 @@ This creates several issues:
 ## A common problem
 
 ::: {.center}
-{{< video https://www.youtube.com/embed/s3JldKoA0zw >}}
 
-[_Credits:_ [Ignasi Bartomeus](https://bartomeuslab.com/)]{.small}
+[{{< video https://www.youtube.com/embed/s3JldKoA0zw width="800" height="450" >}}]{.center}
+
+[Credits: [Ignasi Bartomeus](https://bartomeuslab.com/)]{.small}
 :::
+
+
+## Literate programming
+
+Paradigm introduced in 1984 by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth)[^tex]
+
+<br />
+
+
+> Literate programming is an approach in which code,  results and narrative 
+> are written together in the same document, so that programs can be understood 
+> by humans as well as executed by computers.
+
+[^tex]: He created the typesetting program [TeX](https://en.wikipedia.org/wiki/TeX)
+
+. . .
+
+<br />
+
+::: {.boxed .center}
+**Reproducibility**
+:::
+
+. . .
+
+<br /><br />
+
+{{< fa circle-arrow-right >}}&nbsp;
+[**Quarto**](https://quarto.org/) and [**R Markdown**](https://rmarkdown.rstudio.com/) are modern implementations of this paradigm
+
+
+
+# Quarto
