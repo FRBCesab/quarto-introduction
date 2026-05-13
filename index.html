@@ -254,7 +254,7 @@
 
 </div><div class="column" style="width:95%;">
 <p><i class="fa-solid fa-1" aria-label="1"></i>&nbsp;&nbsp; Introduction to Quarto</p>
-<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto</p>
+<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)</p>
 <p><i class="fa-solid fa-3" aria-label="3"></i>&nbsp;&nbsp; Quarto projects: Websites</p>
 <p><i class="fa-solid fa-4" aria-label="4"></i>&nbsp;&nbsp; Quarto projects: Blogs</p>
 <p><i class="fa-solid fa-5" aria-label="5"></i>&nbsp;&nbsp; Quarto projects: Slides</p>
@@ -269,7 +269,7 @@
 
 </div><div class="column" style="width:95%;">
 <p><i class="fa-solid fa-1" aria-label="1"></i>&nbsp;&nbsp; <strong>Introduction to Quarto</strong></p>
-<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto</p>
+<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)</p>
 <p><i class="fa-solid fa-3" aria-label="3"></i>&nbsp;&nbsp; Quarto projects: Websites</p>
 <p><i class="fa-solid fa-4" aria-label="4"></i>&nbsp;&nbsp; Quarto projects: Blogs</p>
 <p><i class="fa-solid fa-5" aria-label="5"></i>&nbsp;&nbsp; Quarto projects: Slides</p>
@@ -682,6 +682,273 @@
 <p><img data-src="images/quarto-render.png" class="quarto-figure quarto-figure-center" data-wdith="100%"></p>
 </figure>
 </div>
+</div></div>
+</section></section>
+<section>
+<section id="figures" class="title-slide slide level1 center">
+<h1>Figures</h1>
+
+</section>
+<section id="from-an-external-file" class="slide level2">
+<h2>From an external file</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In <strong>Pandoc’s Markdown</strong>, the basic syntax to insert a figure is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="al">![Caption of the figure](relative_path_to_the_file.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<p><br></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Quarto</strong> provides some options to quickly customize figures</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="al">![This is not a pipe](pipe.png)</span>{width=50% fig-align="center"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We can cross-reference figures by adding an ID with the <code>#fig-*</code> prefix</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="al">![This is not a pipe](pipe.png)</span>{#fig-pipe}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then, we can refer to this figure by using <code>@fig-*</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a>This statement is illustrated well by @fig-pipe.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</div>
+</section>
+<section id="advanced-layouts" class="slide level2">
+<h2>Advanced layouts</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Figure panel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a>::: {layout-ncol=2}</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a><span class="al">![Surus](surus.png)</span></span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a><span class="al">![Hanno](hanno.png)</span></span>
+<span id="cb10-6"><a href=""></a></span>
+<span id="cb10-7"><a href=""></a></span>
+<span id="cb10-8"><a href=""></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure-panel.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="advanced-layouts-1" class="slide level2">
+<h2>Advanced layouts</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Figure panel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a>::: {layout-ncol=2}</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="al">![Surus](surus.png)</span></span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="al">![Hanno](hanno.png)</span></span>
+<span id="cb11-6"><a href=""></a></span>
+<span id="cb11-7"><a href=""></a></span>
+<span id="cb11-8"><a href=""></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure-panel.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Subfigures</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a>::: {#fig-elephants layout-ncol=2}</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a><span class="al">![Surus](surus.png)</span>{#fig-surus}</span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a><span class="al">![Hanno](hanno.png)</span>{#fig-hanno}</span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a>Famous Elephants</span>
+<span id="cb12-8"><a href=""></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/subfigures.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="advanced-layouts-2" class="slide level2">
+<h2>Advanced layouts</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Multiple Rows</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a>::: {layout-nrow=2}</span>
+<span id="cb13-2"><a href=""></a><span class="al">![Surus](surus.png)</span></span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="al">![Hanno](hanno.png)</span></span>
+<span id="cb13-5"><a href=""></a></span>
+<span id="cb13-6"><a href=""></a><span class="al">![Abdul Abbas](abdul-abbas.png)</span></span>
+<span id="cb13-7"><a href=""></a></span>
+<span id="cb13-8"><a href=""></a><span class="al">![Lin Wang](lin-wang.png)</span></span>
+<span id="cb13-9"><a href=""></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/multirow-figures.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<p><br><br><br><br><br><br><br><br></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Learn more about figures <a href="https://quarto.org/docs/authoring/figures.html">here</a></p>
+</div></div>
+</section>
+<section id="figures-produced-by-code-chunks" class="slide level2">
+<h2>Figures produced by code chunks</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb14-2"><a href=""></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb14-3"><a href=""></a><span class="co">#| fig-cap: "Temperature and ozone level"</span></span>
+<span id="cb14-4"><a href=""></a><span class="co">#| fig-width: 8</span></span>
+<span id="cb14-5"><a href=""></a><span class="co">#| fig-height: 8</span></span>
+<span id="cb14-6"><a href=""></a><span class="co">#| fig-align: center</span></span>
+<span id="cb14-7"><a href=""></a></span>
+<span id="cb14-8"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-9"><a href=""></a></span>
+<span id="cb14-10"><a href=""></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb14-11"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb14-12"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span>
+<span id="cb14-13"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section></section>
+<section>
+<section id="tables" class="title-slide slide level1 center">
+<h1>Tables</h1>
+
+</section>
+<section id="markdown-tables" class="slide level2">
+<h2>Markdown Tables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="pp">|</span> Default <span class="pp">|</span> Left <span class="pp">|</span> Right <span class="pp">|</span> Center <span class="pp">|</span></span>
+<span id="cb15-2"><a href=""></a><span class="pp">|---------|:-----|------:|:------:|</span></span>
+<span id="cb15-3"><a href=""></a><span class="pp">|</span> 12      <span class="pp">|</span> 12   <span class="pp">|</span>    12 <span class="pp">|</span>   12   <span class="pp">|</span></span>
+<span id="cb15-4"><a href=""></a><span class="pp">|</span> 123     <span class="pp">|</span> 123  <span class="pp">|</span>   123 <span class="pp">|</span>  123   <span class="pp">|</span></span>
+<span id="cb15-5"><a href=""></a><span class="pp">|</span> 1       <span class="pp">|</span> 1    <span class="pp">|</span>     1 <span class="pp">|</span>   1    <span class="pp">|</span></span>
+<span id="cb15-6"><a href=""></a></span>
+<span id="cb15-7"><a href=""></a>: This is Markdown table {#tbl-mdtable}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="markdown-tables-1" class="slide level2">
+<h2>Markdown Tables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="pp">|</span> Default <span class="pp">|</span> Left <span class="pp">|</span> Right <span class="pp">|</span> Center <span class="pp">|</span></span>
+<span id="cb16-2"><a href=""></a><span class="pp">|---------|:-----|------:|:------:|</span></span>
+<span id="cb16-3"><a href=""></a><span class="pp">|</span> 12      <span class="pp">|</span> 12   <span class="pp">|</span>    12 <span class="pp">|</span>   12   <span class="pp">|</span></span>
+<span id="cb16-4"><a href=""></a><span class="pp">|</span> 123     <span class="pp">|</span> 123  <span class="pp">|</span>   123 <span class="pp">|</span>  123   <span class="pp">|</span></span>
+<span id="cb16-5"><a href=""></a><span class="pp">|</span> 1       <span class="pp">|</span> 1    <span class="pp">|</span>     1 <span class="pp">|</span>   1    <span class="pp">|</span></span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a>: This is Markdown table {#tbl-mdtable}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<div id="tbl-mdtable" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mdtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: This is Markdown table
+</figcaption>
+<div aria-describedby="tbl-mdtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Default</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: right;">Right</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td>123</td>
+<td style="text-align: left;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: center;">123</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div></div>
+<p><br></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Learn more about tables <a href="https://quarto.org/docs/authoring/figures.html">here</a></p>
+</section>
+<section id="tables-produced-by-code-chunks" class="slide level2">
+<h2>Tables produced by code chunks</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb17-2"><a href=""></a><span class="co">#| label: tbl-cars</span></span>
+<span id="cb17-3"><a href=""></a><span class="co">#| tbl-cap: "Overview of the cars data.frame"</span></span>
+<span id="cb17-4"><a href=""></a></span>
+<span id="cb17-5"><a href=""></a>cars <span class="sc">|&gt;</span> </span>
+<span id="cb17-6"><a href=""></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb17-7"><a href=""></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span>
+<span id="cb17-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section></section>
+<section>
+<section id="resources" class="title-slide slide level1 center">
+<h1>Resources</h1>
+
+</section>
+<section id="resources-1" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="https://quarto.org">Quarto website</a></li>
+<li><a href="https://quarto.org/docs/guide/">Quarto guide</a></li>
+<li><a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown basics</a></li>
+<li><a href="https://quarto.org/docs/computations/r.html">Code chunk options (1)</a></li>
+<li><a href="https://quarto.org/docs/computations/execution-options.html">Code chunk options (2)</a></li>
+<li><a href="https://quarto.org/docs/authoring/figures.html">Figures w/ Quarto</a></li>
+<li><a href="https://quarto.org/docs/authoring/tables.html">Tables w/ Quarto</a></li>
+<li><a href="https://r4ds.hadley.nz/quarto.html">Quarto for data science</a></li>
+</ul>
+</section></section>
+<section>
+<section id="next-time" class="title-slide slide level1 center">
+<h1>Next time</h1>
+
+</section>
+<section id="series-of-courses-2" class="slide level2">
+<h2>Series of courses</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:5%;">
+
+</div><div class="column" style="width:95%;">
+<p><i class="fa-solid fa-1" aria-label="1"></i>&nbsp;&nbsp; Introduction to Quarto</p>
+<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; <strong>Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)</strong></p>
+<p><i class="fa-solid fa-3" aria-label="3"></i>&nbsp;&nbsp; Quarto projects: Websites</p>
+<p><i class="fa-solid fa-4" aria-label="4"></i>&nbsp;&nbsp; Quarto projects: Blogs</p>
+<p><i class="fa-solid fa-5" aria-label="5"></i>&nbsp;&nbsp; Quarto projects: Slides</p>
+<p><i class="fa-solid fa-6" aria-label="6"></i>&nbsp;&nbsp; Publish w/ GitHub Pages</p>
 </div></div>
 
 </section></section>
