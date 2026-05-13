@@ -1,3 +1,68 @@
+## Series of courses
+
+<br />
+
+:::: {.columns}
+
+::: {.column width=5%}
+:::
+
+::: {.column width=95%}
+
+{{< fa 1 >}}&nbsp;&nbsp;
+Introduction to Quarto
+
+{{< fa 2 >}}&nbsp;&nbsp;
+Advanced Quarto
+
+{{< fa 3 >}}&nbsp;&nbsp;
+Quarto projects: Websites
+
+{{< fa 4 >}}&nbsp;&nbsp;
+Quarto projects: Blogs
+
+{{< fa 5 >}}&nbsp;&nbsp;
+Quarto projects: Slides
+
+{{< fa 6 >}}&nbsp;&nbsp;
+Publish w/ GitHub Pages
+
+:::
+::::
+
+
+## Series of courses
+
+<br />
+
+:::: {.columns}
+
+::: {.column width=5%}
+:::
+
+::: {.column width=95%}
+
+{{< fa 1 >}}&nbsp;&nbsp;
+**Introduction to Quarto**
+
+{{< fa 2 >}}&nbsp;&nbsp;
+Advanced Quarto
+
+{{< fa 3 >}}&nbsp;&nbsp;
+Quarto projects: Websites
+
+{{< fa 4 >}}&nbsp;&nbsp;
+Quarto projects: Blogs
+
+{{< fa 5 >}}&nbsp;&nbsp;
+Quarto projects: Slides
+
+{{< fa 6 >}}&nbsp;&nbsp;
+Publish w/ GitHub Pages
+
+:::
+::::
+
 # Motivations
 
 ## A common problem
@@ -60,3 +125,346 @@ Paradigm introduced in 1984 by [Donald Knuth](https://en.wikipedia.org/wiki/Dona
 
 
 # Quarto
+
+## What is Quarto?
+
+- Quarto is an open-source scientific and technical **publishing system** designed to create 
+reproducible documents, websites, presentations, books, and dashboards
+
+- Quarto is a **CLI software** supporting different languages (R, Python, Julia & Observable JS)
+
+- Quarto is a powerful, flexible and multi-language **successor of R Markdown**
+
+- Quarto supports dozens of output formats: HTML, PDF, Word, Slide, eBook, Website, etc.
+
+<br />
+
+![Credits: [Allison Horst](https://allisonhorst.com/)](images/quarto-outputs.png){fig-align='center' width=60%}
+
+## How it works?
+
+1. You write a Quarto document (`.qmd` file) with narrative, metadata and code chunks
+1. Convert this document in a Markdown (`.md`) file using `knitr`[^knitr]
+1. Convert this `.md` file in the final output using `Pandoc`[^pandoc]
+
+<br />
+
+![Credits: [Allison Horst](https://allisonhorst.com/)](images/quarto-machinery.png){fig-align='center' width=60%}
+
+[^knitr]: The R package `knitr` processes R code chunks, executes them, and inserts the results into the Markdown document.
+[^pandoc]: Quarto comes with a built-in and modified version of `Pandoc`
+
+
+## Quarto vs R Markdown
+
+
+| Feature / Aspect              | R Markdown                             | Quarto                                                     |
+| ----------------------------- | -------------------------------------- | ---------------------------------------------------------- |
+| **File extension**            | `.Rmd`                                 | `.qmd`                                                     |
+| **Primary language support**  | R                                      | R, Python, Julia, Observable JS                            |
+| **Execution engine for R**    | `knitr`                                | `knitr` (for R)                                            |
+| **Other languages**           | Limited (Python via `reticulate`)      | Jupyter kernels (Python, Julia, etc.)                      |
+| **Output formats**^1^         | HTML, PDF, Word                        | HTML, PDF, Word, Reveal.js, Beamer, PowerPoint, dashboards |
+| **Project types**^1^          | Individual documents                   | Documents, websites, books, dashboards                     |
+| **Cross-references**^1^       | Limited, requires `bookdown` or manual | Built-in support for figures, tables, sections             |
+| **Citations / bibliography**  | `bibliography` in YAML, Pandoc syntax  | Pandoc-style, built-in support                             |
+| **Themes & styling**^1^       | Limited                                | Multiple themes, CSS/HTML customization                    |
+| **Interactive features**      | Shiny (R only)                         | Shiny (R), Observable JS, Python widgets                   |
+| **Command-line rendering**    | Limited                                | Full support via `quarto render`                           |
+
+: **Table:** Quick comparison of R Markdown & Quarto
+
+<br /><br />
+
+^**1**^ Capabilities of R Markdown can be extended with additional R packages (`distill`, `bookdown`, `blogdown`, `xaringan`, etc.)
+but each plugin comes with its own specificity.
+
+<br />
+
+{{< fa circle-arrow-right >}}&nbsp;
+Quarto is an unified system
+
+
+## Installation
+
+Quarto is available for different IDE:
+
+![<https://quarto.org/docs/get-started/>](images/quarto-ide.png){fig-align='center' width=40%}
+
+<br />
+
+- If you use RStudio or Positron IDE, Quarto is already installed
+- You also need to install both `knitr` and `rmarkdown` R packages
+
+
+# The `.qmd` file
+
+## Anatomy of a `.qmd` file
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+````markdown
+---
+title: "Hello Quarto"
+author: "Jane DOE"
+date: "2026-05-13"
+format: html
+---
+
+# Introduction
+
+Quarto is the next-generation replacement for `R Markdown`, and it
+can run **R**, **Python**, **Julia**, and **JavaScript** code.
+
+
+## R Code Example
+
+Here's a simple R code chunk:
+
+
+```{{r}}
+#| echo: false
+#| eval: true
+
+summary(cars)
+```
+
+End of the demo.
+````
+:::
+
+::: {.column width=5O%}
+:::
+
+::::
+
+
+
+## Anatomy of a `.qmd` file
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+````{.markdown code-line-numbers="1-6"}
+---
+title: "Hello Quarto"
+author: "Jane DOE"
+date: "2026-05-13"
+format: html
+---
+
+# Introduction
+
+Quarto is the next-generation replacement for `R Markdown`, and it
+can run **R**, **Python**, **Julia**, and **JavaScript** code.
+
+
+## R Code Example
+
+Here's a simple R code chunk:
+
+
+```{{r}}
+#| echo: false
+#| eval: true
+
+summary(cars)
+```
+
+End of the demo.
+````
+:::
+
+::: {.column width=5%}
+:::
+
+::: {.column width=45%}
+**YAML header**
+
+- Surrounded by `---`
+- Describes document metadata
+- Controls the output format
+- Syntax: `key: value`
+:::
+
+::::
+
+
+## Anatomy of a `.qmd` file
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+````{.markdown code-line-numbers="8-16,26"}
+---
+title: "Hello Quarto"
+author: "Jane DOE"
+date: "2026-05-13"
+format: html
+---
+
+# Introduction
+
+Quarto is the next-generation replacement for `R Markdown`, and it
+can run **R**, **Python**, **Julia**, and **JavaScript** code.
+
+
+## R Code Example
+
+Here's a simple R code chunk:
+
+
+```{{r}}
+#| echo: false
+#| eval: true
+
+summary(cars)
+```
+
+End of the demo.
+````
+:::
+
+::: {.column width=5%}
+:::
+
+::: {.column width=45%}
+**Formatted text**
+
+- The narrative of the document
+- Use the markdown syntax
+  - Headers w/ `#`, `##`, `###`, etc.
+  - Format w/ `**bold**`, `_italic_`, `` `verbatim` ``
+  - Hyperlink w/ `[](url)`
+  - Image insertion w/ `![caption](image_path)`
+
+<br/>
+{{< fa circle-arrow-right >}}&nbsp;
+Learn more about the Markdown syntax [here](https://quarto.org/docs/authoring/markdown-basics.html)
+:::
+
+::::
+
+
+## Anatomy of a `.qmd` file
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+````{.markdown code-line-numbers="19-24"}
+---
+title: "Hello Quarto"
+author: "Jane DOE"
+date: "2026-05-13"
+format: html
+---
+
+# Introduction
+
+Quarto is the next-generation replacement for `R Markdown`, and it
+can run **R**, **Python**, **Julia**, and **JavaScript** code.
+
+
+## R Code Example
+
+Here's a simple R code chunk:
+
+
+```{{r}}
+#| echo: false
+#| eval: true
+
+summary(cars)
+```
+
+End of the demo.
+````
+:::
+
+::: {.column width=5%}
+:::
+
+::: {.column width=45%}
+**Code chunks**
+
+- Surrounded by three backticks ` ``` `
+- Specify the language w/ ` ```r `
+- Specify the language & execute the chunk w/ ` ```{r} `
+- Define chunk options w/ `#| key: value`
+  - `#| echo: true`
+  - `#| eval: false`
+
+
+<br/>
+{{< fa circle-arrow-right >}}&nbsp;
+Learn more about chunk options [here](https://quarto.org/docs/computations/r.html)
+
+:::
+
+::::
+
+
+## Render the output
+
+- Click on the **Render** button of RStudio
+- On a terminal, run: `quarto render filename.qmd`
+- Use the shortcut `Ctrl + Shift + K`
+- With the R package [quarto](https://quarto-dev.github.io/quarto-r/), run `quarto::render("filename.qmd")`
+
+![Credits: [Allison Horst](https://allisonhorst.com/)](images/quarto-workflow.png){fig-align='center' width=60%}
+
+
+## Render the output
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+````{.markdown}
+---
+title: "Hello Quarto"
+author: "Jane DOE"
+date: "2026-05-13"
+format: html
+---
+
+# Introduction
+
+Quarto is the next-generation replacement for `R Markdown`, and it
+can run **R**, **Python**, **Julia**, and **JavaScript** code.
+
+
+## R Code Example
+
+Here's a simple R code chunk:
+
+
+```{{r}}
+#| echo: true
+#| eval: true
+
+summary(cars)
+```
+
+End of the demo.
+````
+:::
+
+::: {.column width=5%}
+:::
+
+::: {.column width=45%}
+![](images/quarto-render.png){wdith=100% fig-align="center"}
+:::
+
+::::
