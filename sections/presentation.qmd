@@ -13,7 +13,7 @@
 Introduction to Quarto
 
 {{< fa 2 >}}&nbsp;&nbsp;
-Advanced Quarto
+Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)
 
 {{< fa 3 >}}&nbsp;&nbsp;
 Quarto projects: Websites
@@ -46,7 +46,7 @@ Publish w/ GitHub Pages
 **Introduction to Quarto**
 
 {{< fa 2 >}}&nbsp;&nbsp;
-Advanced Quarto
+Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)
 
 {{< fa 3 >}}&nbsp;&nbsp;
 Quarto projects: Websites
@@ -468,3 +468,336 @@ End of the demo.
 :::
 
 ::::
+
+
+
+# Figures
+
+
+## From an external file
+
+:::: {.columns}
+::: {.column width=50%}
+In **Pandoc's Markdown**, the basic syntax to insert a figure is:
+
+```markdown
+![Caption of the figure](relative_path_to_the_file.png)
+```
+:::
+::::
+  
+
+<br />
+
+. . .
+
+:::: {.columns}
+::: {.column width=50%}
+**Quarto** provides some options to quickly customize figures
+
+```markdown
+![This is not a pipe](pipe.png){width=50% fig-align="center"}
+```
+:::
+::::
+
+<br />
+
+. . .
+
+:::: {.columns}
+::: {.column width=50%}
+We can cross-reference figures by adding an ID with the `#fig-*` prefix 
+
+```markdown
+![This is not a pipe](pipe.png){#fig-pipe}
+```
+Then, we can refer to this figure by using `@fig-*`
+
+```markdown
+This statement is illustrated well by @fig-pipe.
+```
+:::
+::::
+
+
+## Advanced layouts
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+**Figure panel**
+
+```markdown
+::: {layout-ncol=2}
+
+![Surus](surus.png)
+
+![Hanno](hanno.png)
+
+
+:::
+```
+
+<br/>
+
+![](images/figure-panel.png){fig-align="center"}
+:::
+
+::: {.column width=50%}
+:::
+
+::::
+
+
+## Advanced layouts
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+**Figure panel**
+
+```markdown
+::: {layout-ncol=2}
+
+![Surus](surus.png)
+
+![Hanno](hanno.png)
+
+
+:::
+```
+
+<br/>
+
+![](images/figure-panel.png){fig-align="center"}
+:::
+
+::: {.column width=50%}
+**Subfigures**
+
+```markdown
+::: {#fig-elephants layout-ncol=2}
+
+![Surus](surus.png){#fig-surus}
+
+![Hanno](hanno.png){#fig-hanno}
+
+Famous Elephants
+:::
+```
+
+<br/>
+
+![](images/subfigures.png){fig-align="center"}
+
+:::
+
+::::
+
+
+## Advanced layouts
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+**Multiple Rows**
+
+```markdown
+::: {layout-nrow=2}
+![Surus](surus.png)
+
+![Hanno](hanno.png)
+
+![Abdul Abbas](abdul-abbas.png)
+
+![Lin Wang](lin-wang.png)
+:::
+```
+
+![](images/multirow-figures.png){fig-align="center"}
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=40%}
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+{{< fa circle-arrow-right >}}&nbsp;
+Learn more about figures [here](https://quarto.org/docs/authoring/figures.html)
+:::
+
+::::
+
+
+## Figures produced by code chunks
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+````markdown
+```{{r}}
+#| label: fig-airquality
+#| fig-cap: "Temperature and ozone level"
+#| fig-width: 8
+#| fig-height: 8
+#| fig-align: center
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess")
+```
+
+````
+:::
+
+::: {.column width=50%}
+:::
+
+::::
+
+
+# Tables
+
+## Markdown Tables
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+````markdown
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: This is Markdown table {#tbl-mdtable}
+````
+:::
+
+::: {.column width=50%}
+
+:::
+
+::::
+
+
+## Markdown Tables
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+````markdown
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: This is Markdown table {#tbl-mdtable}
+````
+:::
+
+::: {.column width=50%}
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: This is Markdown table {#tbl-mdtable}
+:::
+
+::::
+
+
+<br />
+
+{{< fa circle-arrow-right >}}&nbsp;
+Learn more about tables [here](https://quarto.org/docs/authoring/figures.html)
+
+
+## Tables produced by code chunks
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+````markdown
+```{{r}}
+#| label: tbl-cars
+#| tbl-cap: "Overview of the cars data.frame"
+
+cars |> 
+  head() |> 
+  knitr::kable()
+```
+
+````
+:::
+
+::: {.column width=50%}
+:::
+
+::::
+
+
+# Resources
+
+## Resources
+
+- [Quarto website](https://quarto.org)
+- [Quarto guide](https://quarto.org/docs/guide/)
+- [Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html)
+- [Code chunk options (1)](https://quarto.org/docs/computations/r.html)
+- [Code chunk options (2)](https://quarto.org/docs/computations/execution-options.html)
+- [Figures w/ Quarto](https://quarto.org/docs/authoring/figures.html)
+- [Tables w/ Quarto](https://quarto.org/docs/authoring/tables.html)
+- [Quarto for data science](https://r4ds.hadley.nz/quarto.html)
+
+# Next time
+
+## Series of courses
+
+<br />
+
+:::: {.columns}
+
+::: {.column width=5%}
+:::
+
+::: {.column width=95%}
+
+{{< fa 1 >}}&nbsp;&nbsp;
+Introduction to Quarto
+
+{{< fa 2 >}}&nbsp;&nbsp;
+**Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)**
+
+{{< fa 3 >}}&nbsp;&nbsp;
+Quarto projects: Websites
+
+{{< fa 4 >}}&nbsp;&nbsp;
+Quarto projects: Blogs
+
+{{< fa 5 >}}&nbsp;&nbsp;
+Quarto projects: Slides
+
+{{< fa 6 >}}&nbsp;&nbsp;
+Publish w/ GitHub Pages
+
+:::
+::::
+
