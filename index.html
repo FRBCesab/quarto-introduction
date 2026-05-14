@@ -254,7 +254,7 @@
 
 </div><div class="column" style="width:95%;">
 <p><i class="fa-solid fa-1" aria-label="1"></i>&nbsp;&nbsp; Introduction to Quarto</p>
-<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)</p>
+<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto</p>
 <p><i class="fa-solid fa-3" aria-label="3"></i>&nbsp;&nbsp; Quarto projects: Websites</p>
 <p><i class="fa-solid fa-4" aria-label="4"></i>&nbsp;&nbsp; Quarto projects: Blogs</p>
 <p><i class="fa-solid fa-5" aria-label="5"></i>&nbsp;&nbsp; Quarto projects: Slides</p>
@@ -269,7 +269,7 @@
 
 </div><div class="column" style="width:95%;">
 <p><i class="fa-solid fa-1" aria-label="1"></i>&nbsp;&nbsp; <strong>Introduction to Quarto</strong></p>
-<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)</p>
+<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; Advanced Quarto</p>
 <p><i class="fa-solid fa-3" aria-label="3"></i>&nbsp;&nbsp; Quarto projects: Websites</p>
 <p><i class="fa-solid fa-4" aria-label="4"></i>&nbsp;&nbsp; Quarto projects: Blogs</p>
 <p><i class="fa-solid fa-5" aria-label="5"></i>&nbsp;&nbsp; Quarto projects: Slides</p>
@@ -287,7 +287,7 @@
 <ul>
 <li>code</li>
 <li>results</li>
-<li>explanatory text</li>
+<li>narrative (explanatory text)</li>
 </ul>
 <p><br></p>
 <div class="fragment">
@@ -295,7 +295,7 @@
 <ul>
 <li>lack of reproducibility</li>
 <li>hard maintenance</li>
-<li>results becoming disconnected from the code</li>
+<li>results are disconnected from the code</li>
 </ul>
 </div>
 </section>
@@ -348,7 +348,7 @@
 <section id="how-it-works" class="slide level2">
 <h2>How it works?</h2>
 <ol type="1">
-<li>You write a Quarto document (<code>.qmd</code> file) with narrative, metadata and code chunks</li>
+<li>Edit a Quarto document (<code>.qmd</code> file) with narrative, metadata and code chunks</li>
 <li>Convert this document in a Markdown (<code>.md</code>) file using <code>knitr</code><sup>1</sup></li>
 <li>Convert this <code>.md</code> file in the final output using <code>Pandoc</code><sup>2</sup></li>
 </ol>
@@ -360,9 +360,9 @@
 </figure>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>The R package <code>knitr</code> processes R code chunks, executes them, and inserts the results into the Markdown document.</p></li><li id="fn3"><p>Quarto comes with a built-in and modified version of <code>Pandoc</code></p></li></ol></aside></section>
-<section id="quarto-vs-r-markdown" class="slide level2">
-<h2>Quarto vs R Markdown</h2>
-<table class="caption-top">
+<section id="r-markdown-vs-quarto" class="slide level2">
+<h2>R Markdown vs Quarto</h2>
+<table class="table-striped table-hover caption-top">
 <caption><strong>Table:</strong> Quick comparison of R Markdown &amp; Quarto</caption>
 <colgroup>
 <col style="width: 23%">
@@ -390,7 +390,7 @@
 <tr class="odd">
 <td><strong>Execution engine for R</strong></td>
 <td><code>knitr</code></td>
-<td><code>knitr</code> (for R)</td>
+<td><code>knitr</code></td>
 </tr>
 <tr class="even">
 <td><strong>Other languages</strong></td>
@@ -409,35 +409,30 @@
 </tr>
 <tr class="odd">
 <td><strong>Cross-references</strong><sup>1</sup></td>
-<td>Limited, requires <code>bookdown</code> or manual</td>
-<td>Built-in support for figures, tables, sections</td>
+<td>Limited, requires <code>bookdown</code></td>
+<td>Built-in support for figures, tables, equations, sections</td>
 </tr>
 <tr class="even">
-<td><strong>Citations / bibliography</strong></td>
-<td><code>bibliography</code> in YAML, Pandoc syntax</td>
-<td>Pandoc-style, built-in support</td>
-</tr>
-<tr class="odd">
 <td><strong>Themes &amp; styling</strong><sup>1</sup></td>
 <td>Limited</td>
 <td>Multiple themes, CSS/HTML customization</td>
 </tr>
-<tr class="even">
-<td><strong>Interactive features</strong></td>
-<td>Shiny (R only)</td>
-<td>Shiny (R), Observable JS, Python widgets</td>
-</tr>
 <tr class="odd">
-<td><strong>Command-line rendering</strong></td>
-<td>Limited</td>
-<td>Full support via <code>quarto render</code></td>
+<td><strong>Chunk options</strong></td>
+<td>Inline w/ <code>```{r echo=TRUE}</code></td>
+<td>Hashpipe w/ <code>#| echo: true</code></td>
+</tr>
+<tr class="even">
+<td><strong>Rendering</strong></td>
+<td>R w/ <code>rmarkdown::render()</code></td>
+<td>R w/ <code>quarto::render()</code> or CLI w/ <code>quarto render</code></td>
 </tr>
 </tbody>
 </table>
 <p><br><br></p>
-<p><sup><strong>1</strong></sup> Capabilities of R Markdown can be extended with additional R packages (<code>distill</code>, <code>bookdown</code>, <code>blogdown</code>, <code>xaringan</code>, etc.) but each plugin comes with its own specificity.</p>
+<p><sup><strong>1</strong></sup> The capabilities of R Markdown can be extended with additional R packages (<code>distill</code>, <code>bookdown</code>, <code>blogdown</code>, <code>xaringan</code>, etc.) but each plugin comes with its own specificity.</p>
 <p><br></p>
-<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Quarto is an unified system</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Quarto is an unified system with advanced features</p>
 </section>
 <section id="installation" class="slide level2">
 <h2>Installation</h2>
@@ -531,7 +526,7 @@
 <li>Surrounded by <code>---</code></li>
 <li>Describes document metadata</li>
 <li>Controls the output format</li>
-<li>Syntax: <code>key: value</code></li>
+<li>Syntax = <code>key: value</code></li>
 </ul>
 </div></div>
 </section>
@@ -617,10 +612,10 @@
 </div><div class="column" style="width:45%;">
 <p><strong>Code chunks</strong></p>
 <ul>
-<li>Surrounded by three backticks <code>```</code></li>
+<li>Surrounded by <code>```</code></li>
 <li>Specify the language w/ <code>```r</code></li>
 <li>Specify the language &amp; execute the chunk w/ <code>```{r}</code></li>
-<li>Define chunk options w/ <code>#| key: value</code>
+<li>Chunk option syntax = <code>#| key: value</code>
 <ul>
 <li><code>#| echo: true</code></li>
 <li><code>#| eval: false</code></li>
@@ -633,9 +628,9 @@
 <h2>Render the output</h2>
 <ul>
 <li>Click on the <strong>Render</strong> button of RStudio</li>
-<li>On a terminal, run: <code>quarto render filename.qmd</code></li>
-<li>Use the shortcut <code>Ctrl + Shift + K</code></li>
-<li>With the R package <a href="https://quarto-dev.github.io/quarto-r/">quarto</a>, run <code>quarto::render("filename.qmd")</code></li>
+<li>Or, on a terminal, run: <strong><code>quarto render filename.qmd</code></strong></li>
+<li>Or, use the shortcut <strong>Ctrl + Shift + K</strong></li>
+<li>Or, with the <a href="https://quarto-dev.github.io/quarto-r/">quarto</a> R package, run <strong><code>quarto::render("filename.qmd")</code></strong></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -693,14 +688,14 @@
 <h2>From an external file</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>In <strong>Pandoc’s Markdown</strong>, the basic syntax to insert a figure is:</p>
+<p>In Markdown, the basic <strong>syntax</strong> to insert a figure is:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="al">![Caption of the figure](relative_path_to_the_file.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <p><br></p>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Quarto</strong> provides some options to quickly customize figures</p>
+<p>Quarto provides some <strong>options</strong> to quickly customize figures</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="al">![This is not a pipe](pipe.png)</span>{width=50% fig-align="center"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <p><br></p>
@@ -708,10 +703,19 @@
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>We can cross-reference figures by adding an ID with the <code>#fig-*</code> prefix</p>
+<p>We can <strong>cross-reference</strong> figures by adding an ID with the <strong><code>#fig-*</code></strong> prefix</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="al">![This is not a pipe](pipe.png)</span>{#fig-pipe}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then, we can refer to this figure by using <code>@fig-*</code></p>
+</div></div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Then, we can refer to this figure by using <strong><code>@fig-*</code></strong> in your narrative</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a>This statement is illustrated well by @fig-pipe.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote>
+<p>This statement is illustrated well by Fig. 1.</p>
+</blockquote>
 </div></div>
 </div>
 </section>
@@ -928,7 +932,13 @@ Table&nbsp;1: This is Markdown table
 <li><a href="https://quarto.org/docs/computations/execution-options.html">Code chunk options (2)</a></li>
 <li><a href="https://quarto.org/docs/authoring/figures.html">Figures w/ Quarto</a></li>
 <li><a href="https://quarto.org/docs/authoring/tables.html">Tables w/ Quarto</a></li>
-<li><a href="https://r4ds.hadley.nz/quarto.html">Quarto for data science</a></li>
+</ul>
+<p><br></p>
+<h4 id="acknowledgments">Acknowledgments</h4>
+<p>These slides borrow content from the following resources:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/quarto.html">Quarto for data science</a> by Hadley Wickham</li>
+<li><a href="https://rdatatoolbox.github.io/chapters/course-quarto.html">An introduction to Quarto</a> by François Guilhaumon</li>
 </ul>
 </section></section>
 <section>
@@ -944,7 +954,7 @@ Table&nbsp;1: This is Markdown table
 
 </div><div class="column" style="width:95%;">
 <p><i class="fa-solid fa-1" aria-label="1"></i>&nbsp;&nbsp; Introduction to Quarto</p>
-<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; <strong>Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)</strong></p>
+<p><i class="fa-solid fa-2" aria-label="2"></i>&nbsp;&nbsp; <strong>Advanced Quarto (callout blocks, tabsets, parameters, citations, cross-references, extensions)</strong></p>
 <p><i class="fa-solid fa-3" aria-label="3"></i>&nbsp;&nbsp; Quarto projects: Websites</p>
 <p><i class="fa-solid fa-4" aria-label="4"></i>&nbsp;&nbsp; Quarto projects: Blogs</p>
 <p><i class="fa-solid fa-5" aria-label="5"></i>&nbsp;&nbsp; Quarto projects: Slides</p>
