@@ -13,7 +13,7 @@
 Introduction to Quarto
 
 {{< fa 2 >}}&nbsp;&nbsp;
-Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)
+Advanced Quarto
 
 {{< fa 3 >}}&nbsp;&nbsp;
 Quarto projects: Websites
@@ -46,7 +46,7 @@ Publish w/ GitHub Pages
 **Introduction to Quarto**
 
 {{< fa 2 >}}&nbsp;&nbsp;
-Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)
+Advanced Quarto
 
 {{< fa 3 >}}&nbsp;&nbsp;
 Quarto projects: Websites
@@ -71,7 +71,7 @@ In data science, we often separate:
 
 - code
 - results
-- explanatory text
+- narrative (explanatory text)
 
 <br/>
 
@@ -81,7 +81,7 @@ This creates several issues:
 
 - lack of reproducibility
 - hard maintenance
-- results becoming disconnected from the code
+- results are disconnected from the code
 
 
 ## A common problem
@@ -143,7 +143,7 @@ reproducible documents, websites, presentations, books, and dashboards
 
 ## How it works?
 
-1. You write a Quarto document (`.qmd` file) with narrative, metadata and code chunks
+1. Edit a Quarto document (`.qmd` file) with narrative, metadata and code chunks
 1. Convert this document in a Markdown (`.md`) file using `knitr`[^knitr]
 1. Convert this `.md` file in the final output using `Pandoc`[^pandoc]
 
@@ -155,34 +155,33 @@ reproducible documents, websites, presentations, books, and dashboards
 [^pandoc]: Quarto comes with a built-in and modified version of `Pandoc`
 
 
-## Quarto vs R Markdown
+## R Markdown vs Quarto
 
 
 | Feature / Aspect              | R Markdown                             | Quarto                                                     |
 | ----------------------------- | -------------------------------------- | ---------------------------------------------------------- |
 | **File extension**            | `.Rmd`                                 | `.qmd`                                                     |
 | **Primary language support**  | R                                      | R, Python, Julia, Observable JS                            |
-| **Execution engine for R**    | `knitr`                                | `knitr` (for R)                                            |
+| **Execution engine for R**    | `knitr`                                | `knitr`                                                    |
 | **Other languages**           | Limited (Python via `reticulate`)      | Jupyter kernels (Python, Julia, etc.)                      |
 | **Output formats**^1^         | HTML, PDF, Word                        | HTML, PDF, Word, Reveal.js, Beamer, PowerPoint, dashboards |
 | **Project types**^1^          | Individual documents                   | Documents, websites, books, dashboards                     |
-| **Cross-references**^1^       | Limited, requires `bookdown` or manual | Built-in support for figures, tables, sections             |
-| **Citations / bibliography**  | `bibliography` in YAML, Pandoc syntax  | Pandoc-style, built-in support                             |
+| **Cross-references**^1^       | Limited, requires `bookdown`           | Built-in support for figures, tables, equations, sections  |
 | **Themes & styling**^1^       | Limited                                | Multiple themes, CSS/HTML customization                    |
-| **Interactive features**      | Shiny (R only)                         | Shiny (R), Observable JS, Python widgets                   |
-| **Command-line rendering**    | Limited                                | Full support via `quarto render`                           |
+| **Chunk options**             | Inline w/ ` ```{r echo=TRUE} `         | Hashpipe w/ `#| echo: true`                                |
+| **Rendering**                 | R w/ `rmarkdown::render()`             | R w/ `quarto::render()` or CLI w/ `quarto render`          |
 
-: **Table:** Quick comparison of R Markdown & Quarto
+: **Table:** Quick comparison of R Markdown & Quarto {.striped .hover}
 
 <br /><br />
 
-^**1**^ Capabilities of R Markdown can be extended with additional R packages (`distill`, `bookdown`, `blogdown`, `xaringan`, etc.)
+^**1**^ The capabilities of R Markdown can be extended with additional R packages (`distill`, `bookdown`, `blogdown`, `xaringan`, etc.)
 but each plugin comes with its own specificity.
 
 <br />
 
 {{< fa circle-arrow-right >}}&nbsp;
-Quarto is an unified system
+Quarto is an unified system with advanced features
 
 
 ## Installation
@@ -289,7 +288,7 @@ End of the demo.
 - Surrounded by `---`
 - Describes document metadata
 - Controls the output format
-- Syntax: `key: value`
+- Syntax = `key: value`
 :::
 
 ::::
@@ -396,10 +395,10 @@ End of the demo.
 ::: {.column width=45%}
 **Code chunks**
 
-- Surrounded by three backticks ` ``` `
+- Surrounded by ` ``` `
 - Specify the language w/ ` ```r `
 - Specify the language & execute the chunk w/ ` ```{r} `
-- Define chunk options w/ `#| key: value`
+- Chunk option syntax = `#| key: value`
   - `#| echo: true`
   - `#| eval: false`
 
@@ -416,9 +415,9 @@ Learn more about chunk options [here](https://quarto.org/docs/computations/r.htm
 ## Render the output
 
 - Click on the **Render** button of RStudio
-- On a terminal, run: `quarto render filename.qmd`
-- Use the shortcut `Ctrl + Shift + K`
-- With the R package [quarto](https://quarto-dev.github.io/quarto-r/), run `quarto::render("filename.qmd")`
+- Or, on a terminal, run: **`quarto render filename.qmd`**
+- Or, use the shortcut **Ctrl + Shift + K**
+- Or, with the [quarto](https://quarto-dev.github.io/quarto-r/) R package, run **`quarto::render("filename.qmd")`**
 
 ![Credits: [Allison Horst](https://allisonhorst.com/)](images/quarto-workflow.png){fig-align='center' width=60%}
 
@@ -478,7 +477,7 @@ End of the demo.
 
 :::: {.columns}
 ::: {.column width=50%}
-In **Pandoc's Markdown**, the basic syntax to insert a figure is:
+In Markdown, the basic **syntax** to insert a figure is:
 
 ```markdown
 ![Caption of the figure](relative_path_to_the_file.png)
@@ -493,7 +492,7 @@ In **Pandoc's Markdown**, the basic syntax to insert a figure is:
 
 :::: {.columns}
 ::: {.column width=50%}
-**Quarto** provides some options to quickly customize figures
+Quarto provides some **options** to quickly customize figures
 
 ```markdown
 ![This is not a pipe](pipe.png){width=50% fig-align="center"}
@@ -507,16 +506,29 @@ In **Pandoc's Markdown**, the basic syntax to insert a figure is:
 
 :::: {.columns}
 ::: {.column width=50%}
-We can cross-reference figures by adding an ID with the `#fig-*` prefix 
+We can **cross-reference** figures by adding an ID with the **`#fig-*`** prefix 
 
 ```markdown
 ![This is not a pipe](pipe.png){#fig-pipe}
 ```
-Then, we can refer to this figure by using `@fig-*`
+:::
+::::
+
+
+
+<br />
+
+. . .
+
+:::: {.columns}
+::: {.column width=50%}
+Then, we can refer to this figure by using **`@fig-*`** in your narrative
 
 ```markdown
 This statement is illustrated well by @fig-pipe.
 ```
+
+> This statement is illustrated well by Fig. 1.
 :::
 ::::
 
@@ -765,7 +777,16 @@ cars |>
 - [Code chunk options (2)](https://quarto.org/docs/computations/execution-options.html)
 - [Figures w/ Quarto](https://quarto.org/docs/authoring/figures.html)
 - [Tables w/ Quarto](https://quarto.org/docs/authoring/tables.html)
-- [Quarto for data science](https://r4ds.hadley.nz/quarto.html)
+
+<br/>
+
+#### Acknowledgments
+
+These slides borrow content from the following resources:
+
+- [Quarto for data science](https://r4ds.hadley.nz/quarto.html) by Hadley Wickham
+- [An introduction to Quarto](https://rdatatoolbox.github.io/chapters/course-quarto.html) by François Guilhaumon
+
 
 # Next time
 
@@ -784,7 +805,7 @@ cars |>
 Introduction to Quarto
 
 {{< fa 2 >}}&nbsp;&nbsp;
-**Advanced Quarto (callout blocks, tabsets, paramaters, citations, cross-references, extensions)**
+**Advanced Quarto (callout blocks, tabsets, parameters, citations, cross-references, extensions)**
 
 {{< fa 3 >}}&nbsp;&nbsp;
 Quarto projects: Websites
